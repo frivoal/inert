@@ -209,7 +209,7 @@ var createClass = function () {
         var _this = this;
 
         composedTreeWalk(startNode, function (node) {
-          _this._visitNode(node);
+          return _this._visitNode(node);
         });
 
         var activeElement = document.activeElement;
@@ -280,7 +280,7 @@ var createClass = function () {
         var _this2 = this;
 
         composedTreeWalk(startNode, function (node) {
-          _this2._unmanageNode(node);
+          return _this2._unmanageNode(node);
         });
       }
 
@@ -532,7 +532,8 @@ var createClass = function () {
 
 
       /**
-       * Throw if user tries to access destroyed InertNode.
+       * Once an InertNode is obsolete, accessing any of its members throws an exception. This should
+       * never happen in practice.
        */
       value: function _throwIfDestroyed() {
         if (this.destroyed) throw new Error('Trying to access destroyed InertNode');

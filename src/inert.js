@@ -300,7 +300,8 @@ class InertNode {
   }
 
   /**
-   * Throw if user tries to access destroyed InertNode.
+   * Once an InertNode is obsolete, accessing any of its members throws an exception. This should
+   * never happen in practice.
    */
   _throwIfDestroyed() {
     if (this.destroyed)
